@@ -1,22 +1,27 @@
-import numpy as
-import matplotlib.pyplot as plt
-while True:
-    unos_1=input().strip()
-    odvoji=unos_1.split()
-    if len(odvoji)==2 and odvoji[0].lstrip('.').replace('.','',1)-isdigit() and odvoji[1].lstrip('-').replace('.','',1):
-        x1,y1= float(odvoji[0]),float(odvoji[1])
-        break
-    else:
-        print('Greška')
-while True:
-    unos_2=input().strip()
-    odvoji_2=unos_2.split()
-    if len(odvoji_2)==2 and odvoji_2[0].lstrip('').replace('.','',1).isdigit() and odvoji_2[1].lstrip('-').replace('.','',1):
-        x2,y2=float(odvoji_2[0]),float(odvoji_2[1])
-        break
-    else:
-        print('Greška')
-    k=(y2-y1)/(x2-x1)
-    z=y1-k*x1
-    print(f'Jednadžba pravca je y={k:.0f}x+{z:.0f}')
+def unesite_koordinate():
+    while True:
+        try:
+            return tuple(map(float, input("Unesite x i y koordinate: ").split()))
+        except ValueError:
+            print("Neispravan unos.")
+
+def jednadzba_pravac(t1, t2):
+    x1, y1 = t1
+    x2, y2 = t2
+    if x1 == x2:
+        return f"Jednadžba pravca: x = {x1}"
+    k = (y2 - y1) / (x2 - x1)
+    n = y1 - k * x1
+    return f"Jednadžba pravca: y = {k:.2f}x + {n:.2f}"
+
+t1 = unesite_koordinate()
+t2 = unesite_koordinate()
+if t1 == t2:
+    print("Nije definiran pravac.")
+else:
+    print(jednadzba_pravac(t1, t2))
+
+
+                                
+
 
