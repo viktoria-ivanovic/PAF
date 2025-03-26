@@ -1,7 +1,7 @@
 def unesite_koordinate():
     while True:
         try:
-            return tuple(map(float, input("Unesite x i y koordinate: ").split()))
+            return list(map(float, input("Unesite x i y koordinate: ").split()))
         except ValueError:
             print("Neispravan unos.")
 
